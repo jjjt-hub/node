@@ -87,7 +87,7 @@ jobs:
     - name: "Find syntax errors in our Python dependencies"
     - name: "First commit message adheres to guidelines at <a href=\"https://goo.gl/p2fr5Q\">https://goo.gl/p2fr5Q</a>"
 before_deploy:
-- cd ..
+- ls
 - tar -zcf ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz ${REPO}
 
 deploy:
