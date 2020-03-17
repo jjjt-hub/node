@@ -94,9 +94,13 @@ before_deploy:
 - curl --upload-file ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz https://transfer.sh/build.tar.gz
 
 deploy:
-  # GitHub - Add zip to release
-  - provider: releases
-    api_key: $GitOAUTHToken
-    file: ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz
-    skip_cleanup: true
-    draft: true
+  skip_cleanup: true
+  provider: releases
+  # The api_key will be loaded from the environment variables
+  api_key: $GitOAUTHToken
+  file_glob: true
+  file: $HOME/twrp/*.img
+  on:
+    tags: false
+    repo: $$USERNAME$$/$$REPO_URL$$
+    branch: master
