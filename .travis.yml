@@ -102,5 +102,5 @@ deploy:
   file: ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz
   on:
     tags: false
-    repo: $$USERNAME$$/$$REPO_URL$$
+    repo: jjjt-hub/nodetest
     branch: master
