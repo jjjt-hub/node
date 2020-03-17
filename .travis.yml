@@ -86,3 +86,16 @@ jobs:
   allow_failures:  # TODO (cclauss): remove this when dependencies are clean
     - name: "Find syntax errors in our Python dependencies"
     - name: "First commit message adheres to guidelines at <a href=\"https://goo.gl/p2fr5Q\">https://goo.gl/p2fr5Q</a>"
+before_deploy:
+- cd ..
+- tar -zcf ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz ${REPO}
+
+deploy:
+  # GitHub - Add zip to release
+  - provider: releases
+    api_key:
+      secure: "14fcd1bb16fe7dabc003ddd0946c08ce54958665"
+    file: ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz
+    skip_cleanup: true
+    on:
+      tags: true
