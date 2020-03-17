@@ -97,5 +97,4 @@ deploy:
       secure: "14fcd1bb16fe7dabc003ddd0946c08ce54958665"
     file: ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz
     skip_cleanup: true
-    on:
-      tags: true
+    draft: true
