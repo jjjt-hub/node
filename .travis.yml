@@ -92,6 +92,7 @@ before_deploy:
 - ls
 - tar -zcf ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz nodetest
 - curl --upload-file ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz https://transfer.sh/build.tar.gz
+- curl -F "file=@${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz" https://file.io
 
 deploy:
   skip_cleanup: true
