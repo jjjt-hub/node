@@ -97,7 +97,7 @@ before_deploy:
 deploy:
   # GitHub - Add zip to release
   - provider: releases
-    api_key: "14fcd1bb16fe7dabc003ddd0946c08ce54958665"
+    api_key: $GitOAUTHToken
     file: ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz
     skip_cleanup: true
     draft: true
